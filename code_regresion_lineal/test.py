@@ -12,6 +12,7 @@ import matplotlib.pyplot as plt
 #.\venv\Scripts\Activate.ps1 - Para activar el entorno virtual
 
 def selector_data_training(): #Funcion para seleccionar el dataset a usar
+    st.sidebar.header("Seleccionar el dataset a usar")
     datasets ={"Elige un dataset": None,
             "Precio de casa":r"C:\Users\Usuario\Documents\App-ML-web\data_regresion_lineal\housing.csv",
            "Salarios":r"C:\Users\Usuario\Documents\App-ML-web\data_regresion_lineal\Salary_dataset.csv"}
@@ -33,7 +34,7 @@ def split_data_training(): #Función para seleccionar el porcentaje de datos a u
     )
     return porcentaje / 100  # Convertir a decimal (0.1 a 0.9)
 
-def calculate_metrics(y_true, y_pred):
+def calculate_metrics(y_true, y_pred): #Funcion para calcular las metricas de evaluacion del modelo
     """Calcula todas las métricas de evaluación del modelo"""
     mse = mean_squared_error(y_true, y_pred)
     rmse = np.sqrt(mse)
@@ -245,7 +246,6 @@ st.markdown("La **regresión lineal** es uno de los algoritmos más simples y fu
 " Gracias a su facilidad de interpretación y aplicación, la regresión lineal es ideal para comprender los conceptos básicos de modelado predictivo y sentar las bases para algoritmos más complejos.")
 
 # 1. Cargar datos
-st.sidebar.header("Seleccionar el dataset a usar")
 
 datasets = selector_data_training()
 
