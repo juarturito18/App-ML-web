@@ -1,5 +1,6 @@
 # archivo: app.py
 import streamlit as st
+import streamlit_shadcn_ui as ui
 from sklearn.model_selection import train_test_split 
 import pandas as pd
 from sklearn.linear_model import LinearRegression
@@ -12,6 +13,7 @@ import matplotlib.pyplot as plt
 #.\venv\Scripts\Activate.ps1 - Para activar el entorno virtual
 
 def selector_data_training(): #Funcion para seleccionar el dataset a usar
+
     st.sidebar.header("Seleccionar el dataset a usar")
     datasets ={"Elige un dataset": None,
             "Precio de casa":r"C:\Users\Usuario\Documents\App-ML-web\data_regresion_lineal\housing.csv",
@@ -24,6 +26,11 @@ def selector_data_training(): #Funcion para seleccionar el dataset a usar
     if datasets[select] is  None and upload_dataset is not None:
         datasets[select] = upload_dataset
     return datasets[select]
+
+def clean_data(df): #Funcion para limpiar los datos
+    
+    pass
+
 
 def split_data_training(): #Función para seleccionar el porcentaje de datos a usar para training
     porcentaje = st.sidebar.slider(
